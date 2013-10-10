@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="gastosingresos_form">
+      <field name="name">Gastos e ingresos</field>
+      <field name="model">bugginv5.gastosingresos</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+	<form string="Gastos e ingresos">
+	  <field name="mes"/>
+	  <field name="gasto_salarios"/>
+	  <field name="gasto_licencias"/>
+	  <field name="gasto_extra"/>
+	  <field name="ingreso_cuota"/>
+	  <field name="ingreso_publicidad"/>
+	  <field name="responsable"/>
+	</form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="gastosingresos_tree">
+      <field name="name">Gastos e ingresos</field>
+      <field name="model">bugginv5.gastosingresos</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+	<tree string="Gastos e ingresos">
+	  <field name="mes"/>
+	  <field name="gasto_salarios"/>
+	  <field name="gasto_licencias"/>
+	  <field name="gasto_extra"/>
+	  <field name="ingreso_cuota"/>
+	  <field name="ingreso_publicidad"/>
+	  <field name="responsable"/>
+	</tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="gastosingresos_graph">
+      <field name="name">Grafico mes cuota</field>
+      <field name="model">bugginv5.gastosingresos</field>
+      <field name="type">graph</field>
+      <field name="arch" type="xml">
+        <graph string="Sales Order Lines" orientation="vertical" type="bar">
+	  <field name="mes" group="True"/>
+	  <field name="ingreso_cuota"/>
+	  <field name="ingreso_cuota"/>
+        </graph>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_gastosingresos">
+      <field name="name">Gastos e ingresos</field>
+      <field name="res_model">bugginv5.gastosingresos</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,graph,form</field>
+    </record>
+    <menuitem name="Bugginv5/Gastosingresos/GastosIngresosINFO" id="menu_bugginv5_gastosingresos" action="action_gastosingresos"/>
+  </data>
+</openerp>

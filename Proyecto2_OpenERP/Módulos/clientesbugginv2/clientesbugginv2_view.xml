@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="cliente_form">
+      <field name="name">Clientes</field>
+      <field name="model">clientesbugginv2.cliente</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+	<form string="clientesbugginv2.cliente">
+	  <field name="nombre"/>
+	  <field name="apellidos"/>
+	  <field name="email"/>
+	  <field name="telefono"/>
+	  <field name="domicilio"/>
+	  <field name="localidad"/>
+	  <field name="provincia"/>
+	  <field name="pais"/>
+	</form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="cliente_tree">
+      <field name="name">Clientes</field>
+      <field name="model">clientesbugginv2.cliente</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+	<tree string="clientesbugginv2.cliente">
+	  <field name="nombre"/>
+	  <field name="apellidos"/>
+	</tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_cliente">
+      <field name="name">Cliente</field>
+      <field name="res_model">clientesbugginv2.cliente</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="ventas_form">
+      <field name="name">Ventas</field>
+      <field name="model">clientesbugginv2.ventas</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+	<form string="clientesbugginv2.ventas">
+	  <field name="fecha"/>
+	  <field name="cliente"/>
+	  <field name="precio"/>
+	</form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="ventas_tree">
+      <field name="name">Ventas</field>
+      <field name="model">clientesbugginv2.ventas</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+	<tree string="clientesbugginv2.ventas">
+	  <field name="fecha"/>
+	  <field name="cliente"/>
+	  <field name="precio"/>
+	</tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="ventas_graph">
+      <field name="name">Grafico ventas-cliente</field>
+      <field name="model">clientesbugginv2.ventas</field>
+      <field name="type">graph</field>
+      <field name="arch" type="xml">
+        <graph string="VentasCliente" orientation="vertical" type="bar">
+	  <field name="cliente"/>
+	  <field name="precio"/>
+        </graph>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_ventas">
+      <field name="name">Ventas</field>
+      <field name="res_model">clientesbugginv2.ventas</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form,graph</field>
+    </record>
+    <menuitem name="Clientes Ventas" id="menu_clientes_ventas" sequence="20"/>
+    <menuitem name="Cliente" id="menu_clientes_ventas_cliente" parent="menu_clientes_ventas" sequence="10" action="action_cliente"/>
+    <menuitem name="Ventas" id="menu_clientes_ventas_ventas" parent="menu_clientes_ventas" sequence="20" action="action_ventas"/>
+
+  </data>
+</openerp>
